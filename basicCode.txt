@@ -36,3 +36,7 @@ UE_LOG(LogTemp, Error, TEXT("Tick %f"), DeltaTime);
 
 TIP: breakpoint를 잡고 debug 하려면 UE4를 껐다가 visual studio 로 실행해서 UE4를 켜야 한다. unity와 다르게 굉장히 불편하다.
 
+AddActorLocalRotation(FRotator())
+회전시키는 함수
+예를 들면 아래와 같은 코드를 짤 수 있다.
+AddActorLocalRotation(FRotator(0.f, RotateSpeed * DeltaTime, 0.f)); (x축으로 회전)
