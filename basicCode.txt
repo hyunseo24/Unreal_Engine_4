@@ -1,0 +1,38 @@
+UE4 키코드 & TIP 정리
+
+#include 들 
+CoreMinimal.h
+기본적인 기능을 사용하기 위한 헤더 파일들을 추가한다. 실제로 저 헤더를 열면 수십개의 헤더를 include 라는 코드를 볼 수 있다.
+
+GameFrameWork/Actor.h
+Actor 클래스를 생성했기 때문에 Actor를 상속받기 위해 include
+
+MyActor.generated.h
+언리얼 에디터에서 소스코드가 컴파일 되기 이전에 소스코드를 분석해서 에디터에 표시할 수 있도록 하기 위한 정보들이 저장된다.
+
+UCLASS()
+UHT(Unreal Header Tool)이라는 툴이 코드가 컴파일 되기전에 코드를 돌아보면서 UCLASS() 메크로 다음줄에 오는 것은 클래스라고 판단한다.
+
+GENERATED_BODY()
+클래스의 몸체를 정의하는 메크로, 언리얼 도큐먼트에 따르면 반드시 클래스 정의 첫번째 줄에 위치해야 한다고 한다. 
+
+virtual void BeginPlay() override;
+Spawn 될 때 호출되는 함수라고 한다. 생성자와 혼동 X
+
+virtual void Tick(float DeltaTime) override;
+매 프레임 호출되는 함수
+
+PrimaryActorTick.bCanEverTick = true;
+
+Super::BeginPlay()
+Super::Tick()
+부모 클래스에 정의 되어있는 로직도 실행시키고 내 로직도 실행시키기 위해서 부모 클래스의 같은 이름의 함수를 호출하는 것이다.
+
+UE_LOG()
+언리얼 엔진4에서 로그를 찍어줄수 있는 함수이다
+예를 들면 아래와 같은 코드를 짤 수 있다. 
+UE_LOG(LogTemp, Error, TEXT("Tick %f"), DeltaTime);
+
+
+TIP: breakpoint를 잡고 debug 하려면 UE4를 껐다가 visual studio 로 실행해서 UE4를 켜야 한다. unity와 다르게 굉장히 불편하다.
+

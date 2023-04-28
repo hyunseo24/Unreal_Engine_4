@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ // Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "MyActor.h"
@@ -28,6 +28,9 @@ AMyActor::AMyActor()
 void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// 카테고리, 형식, 인자
+	UE_LOG(LogTemp, Warning, TEXT("BeginPlay %d"), 3);
 	
 }
 
@@ -36,5 +39,8 @@ void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// 카테고리
+	UE_LOG(LogTemp, Error, TEXT("Tick %f"), DeltaTime);
+	AddActorLocalRotation(FRotator(0.f, RotateSpeed * DeltaTime, 0.f));
 }
  
