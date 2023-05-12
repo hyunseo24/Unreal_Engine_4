@@ -11,6 +11,8 @@ AMyActor::AMyActor()
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 
+	RootComponent = Mesh;
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SM(TEXT("StaticMesh'/Game/StarterContent/Props/SM_Chair.SM_Chair'"));
 
 	if (SM.Succeeded()) {

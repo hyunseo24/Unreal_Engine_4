@@ -40,3 +40,12 @@ AddActorLocalRotation(FRotator())
 회전시키는 함수
 예를 들면 아래와 같은 코드를 짤 수 있다.
 AddActorLocalRotation(FRotator(0.f, RotateSpeed * DeltaTime, 0.f)); (x축으로 회전)
+
+
+PlayerInputComponent->BindAxis(TEXT("UpDown"), this, &AMyPawn::UpDown);
+플레이어의 방향키를 입력받는 함수
+
+AddMovementInput(GetActorForwardVector(), Value);
+입력받고 움직이게 하는 함수
+
+
